@@ -18,17 +18,30 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	// Spring Web для створення REST API або веб-додатків
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.security:spring-security-crypto'
+
+	// Залежності для Spring Security
+	implementation 'org.springframework.security:spring-security-config'       // для конфігурації безпеки
+	implementation 'org.springframework.security:spring-security-web'          // для веб-безпеки
+	implementation 'org.springframework.security:spring-security-core'         // основні компоненти безпеки
+	implementation 'org.springframework.security:spring-security-crypto'       // для шифрування паролів та криптографії
+
+	// База даних з JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Драйвер для PostgreSQL
 	runtimeOnly 'org.postgresql:postgresql'
+
+	// Lombok для автоматичного створення геттерів/сеттерів (опціонально)
+	compileOnly 'org.projectlombok:lombok:1.18.34'
+
+	// Залежності для тестування
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	compileOnly 'org.projectlombok:lombok:1.18.34'
-
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()

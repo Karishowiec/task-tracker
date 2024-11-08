@@ -3,11 +3,13 @@ package com.example.tasktracker.service;
 import com.example.tasktracker.model.Task;
 import com.example.tasktracker.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class TaskService {
 
     private  final TaskRepository taskRepository;
@@ -32,10 +34,14 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
-    public List<Task> findTaskByStatus(String status) {
-        return taskRepository.findByStatus(status);
+    public List<Task> findAllTask() {
+        return null;
     }
 
 
+
+    public List<Task> findTaskByStatus(String status) {
+        return taskRepository.findByStatus(status);
+    }
 
 }

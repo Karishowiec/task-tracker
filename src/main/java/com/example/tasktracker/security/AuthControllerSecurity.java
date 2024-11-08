@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/auth")
 
-public class AuthController {
+public class AuthControllerSecurity {
 
     private final UserService userService;
 
     @Autowired
-    public AuthController(UserService userService) {
+    public AuthControllerSecurity(UserService userService) {
         this.userService = userService;
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user) {
-        userService.registerUser(user);
-        return ResponseEntity.ok("User registered successfully");
-    }
+//    @PostMapping("/register")
+//    public ResponseEntity<?> register(@RequestBody User user) {
+//        userService.registerUser(user);
+//        return ResponseEntity.ok("User registered successfully");
+//    }
 }
 
